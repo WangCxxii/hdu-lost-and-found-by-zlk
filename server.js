@@ -17,7 +17,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { DatabaseSync } = require('node:sqlite');
-const seed = require('./server/seed');
+let seed;
+try {
+  seed = require('./server/seed');
+} catch {
+  /* 兼容 GitHub 网页上传时被拍平到根目录的仓库结构 */
+  seed = require('./seed');
+}
 
 const ROOT = __dirname;
 
@@ -835,7 +841,21 @@ const MIME = {
   '.webp': 'image/webp',
   '.ico': 'image/x-icon'
 };
-const DENY = ['.data', 'server', 'server.js', 'server-test.js', 'package.json', 'package-lock.json', '.env', '.git'];
+const DENY = ['.data', 'server', 'server.js', 'server-test.js', 'seed.js', 'package.json', 'package-lock.json', '.env', '.git'];
+
+function isDenied(pathname) {
+  return DENY.some((d) => pathname === '/' + d || pathname.startsWith('/' + d + '/'));
+}
+
+function staticCandidates(pathname) {
+  const list = [pathname];
+  let flat = '';
+  if (pathname.startsWith('/css/')) flat = '/' + pathname.slice('/css/'.length);
+  else if (pathname.startsWith('/js/')) flat = '/' + pathname.slice('/js/'.length);
+  else if (pathname.startsWith('/assets/')) flat = '/' + pathname.replace(/^\/assets\/(?:items\/)?/, '');
+  if (flat && flat !== pathname) list.push(flat);
+  return list;
+}
 
 function serveStatic(req, res, url) {
   if (req.method !== 'GET' && req.method !== 'HEAD') return fail(res, 405, '方法不允许');
@@ -846,25 +866,29 @@ function serveStatic(req, res, url) {
     return fail(res, 400, '路径不正确');
   }
   if (pathname === '/') pathname = '/index.html';
-  const normalized = pathname.replace(/\\/g, '/');
+  const normalized = path.posix.normalize(pathname.replace(/\\/g, '/'));
   if (normalized.split('/').some((part) => part.startsWith('.'))) return fail(res, 404, 'Not found');
-  if (DENY.some((d) => normalized === '/' + d || normalized.startsWith('/' + d + '/'))) return fail(res, 404, 'Not found');
-  const file = path.resolve(ROOT, '.' + normalized);
-  if (!file.startsWith(ROOT + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
-    return fail(res, 404, 'Not found');
+  if (isDenied(normalized)) return fail(res, 404, 'Not found');
+
+  for (const candidate of staticCandidates(normalized)) {
+    if (candidate.split('/').some((part) => part.startsWith('.')) || isDenied(candidate)) continue;
+    const file = path.resolve(ROOT, '.' + candidate);
+    if (!file.startsWith(ROOT + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) continue;
+    const ext = path.extname(file).toLowerCase();
+    const type = MIME[ext] || 'application/octet-stream';
+    const noCache = ext === '.html' || ext === '.js' || ext === '.css';
+    res.writeHead(200, {
+      'Content-Type': type,
+      'Content-Length': fs.statSync(file).size,
+      'Cache-Control': noCache ? 'no-cache' : 'public, max-age=3600',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'strict-origin-when-cross-origin'
+    });
+    if (req.method === 'HEAD') return res.end();
+    fs.createReadStream(file).pipe(res);
+    return;
   }
-  const ext = path.extname(file).toLowerCase();
-  const type = MIME[ext] || 'application/octet-stream';
-  const noCache = ext === '.html' || ext === '.js' || ext === '.css';
-  res.writeHead(200, {
-    'Content-Type': type,
-    'Content-Length': fs.statSync(file).size,
-    'Cache-Control': noCache ? 'no-cache' : 'public, max-age=3600',
-    'X-Content-Type-Options': 'nosniff',
-    'Referrer-Policy': 'strict-origin-when-cross-origin'
-  });
-  if (req.method === 'HEAD') return res.end();
-  fs.createReadStream(file).pipe(res);
+  return fail(res, 404, 'Not found');
 }
 
 /* ------------------------------ 服务器 ------------------------------ */

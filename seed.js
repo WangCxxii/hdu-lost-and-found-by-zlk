@@ -1,9 +1,19 @@
 /*
  * 演示数据：复用前端 js/data.js 里的物品/用户，再补充密码、信用分、
  * 防冒领核验题和认领答题记录。真实部署时建议通过种子脚本写入 PostgreSQL。
+ *
+ * 同时兼容正常目录结构（server/seed.js）和 GitHub 网页上传被拍平到根目录
+ * 的仓库结构（seed.js + data.js 都在根目录）。
  */
+const fs = require('node:fs');
+const path = require('node:path');
+
 global.window = global.window || {};
-require('../js/data.js');
+const dataFile = ['../js/data.js', './js/data.js', './data.js', '../data.js']
+  .map((rel) => path.resolve(__dirname, rel))
+  .find((file) => fs.existsSync(file));
+if (!dataFile) throw new Error('找不到 data.js');
+require(dataFile);
 
 const base = global.window.HDUData.makeSeed();
 const PASSWORD = 'hdu1956';
