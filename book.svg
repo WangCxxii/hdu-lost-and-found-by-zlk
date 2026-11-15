@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="线性代数课本插画">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="95%">
+      <stop offset="0" stop-color="#f5f9ff"/>
+      <stop offset="1" stop-color="#dce8fa"/>
+    </radialGradient>
+    <linearGradient id="book" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3f78e8"/>
+      <stop offset="1" stop-color="#17347f"/>
+    </linearGradient>
+    <linearGradient id="book2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f6d68b"/>
+      <stop offset="1" stop-color="#d9ad4a"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#17347f" flood-opacity=".25"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#17347f" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <rect width="400" height="400" fill="url(#dots)"/>
+  <circle cx="326" cy="84" r="52" fill="#ffffff" opacity=".5"/>
+  <ellipse cx="200" cy="328" rx="130" ry="20" fill="#17347f" opacity=".14" filter="url(#soft)"/>
+  <g filter="url(#shadow)">
+    <g transform="rotate(-4 200 260)">
+      <rect x="66" y="246" width="266" height="48" rx="8" fill="url(#book2)"/>
+      <rect x="66" y="246" width="266" height="10" rx="5" fill="#ffffff" opacity=".3"/>
+      <text x="92" y="276" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#6a4b13" letter-spacing="2">高等数学 · 习题册</text>
+    </g>
+    <g transform="rotate(3 200 200)">
+      <rect x="78" y="118" width="248" height="146" rx="10" fill="url(#book)"/>
+      <rect x="78" y="118" width="18" height="146" rx="9" fill="#0e225c"/>
+      <rect x="78" y="118" width="6" height="146" fill="#ffffff" opacity=".14"/>
+      <text x="114" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="11" fill="#a9c7ff" letter-spacing="3">21 世纪高等学校规划教材</text>
+      <text x="114" y="206" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="3">线性代数</text>
+      <text x="116" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#c7d9ff" letter-spacing="2">第六版 · 同济大学</text>
+      <circle cx="290" cy="150" r="18" fill="none" stroke="#ffffff" stroke-opacity=".3"/>
+      <path d="M282 150h16M290 142v16" stroke="#ffffff" stroke-width="1.5" opacity=".5"/>
+      <path d="M286 246h32" stroke="#ffffff" stroke-width="8" opacity=".12"/>
+      <rect x="114" y="140" width="3" height="102" fill="#ffffff" opacity=".06"/>
+    </g>
+    <g transform="rotate(-13 118 132)">
+      <rect x="52" y="92" width="44" height="22" rx="4" fill="#ffd77a" opacity=".9" transform="rotate(0)"/>
+      <path d="M62 103h10M62 107h7" stroke="#8d6a20" stroke-width="1.4" opacity=".6"/>
+    </g>
+  </g>
+  <g opacity=".55">
+    <path d="M40 190l16-8M48 210h14" stroke="#3f78e8" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="356" cy="300" r="4" fill="#3f78e8"/>
+  </g>
+</svg>

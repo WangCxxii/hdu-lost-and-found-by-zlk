@@ -1,0 +1,13 @@
+{
+  "name": "hdu-lost-found",
+  "version": "2.0.0",
+  "private": true,
+  "description": "杭电失物招领系统：静态前端 + Node.js 轻量后端",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}

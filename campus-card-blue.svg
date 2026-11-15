@@ -1,0 +1,58 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="蓝色校园卡插画">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="90%">
+      <stop offset="0" stop-color="#f4f8ff"/>
+      <stop offset="1" stop-color="#dbe8ff"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d7bff"/>
+      <stop offset="55%" stop-color="#2357e6"/>
+      <stop offset="1" stop-color="#12329c"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".35"/>
+      <stop offset=".45" stop-color="#ffffff" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="strap" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c3f9e"/>
+      <stop offset="1" stop-color="#0c235f"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#173a8f" flood-opacity=".28"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.3" fill="#2f6bff" opacity=".13"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <rect width="400" height="400" fill="url(#dots)"/>
+  <circle cx="322" cy="86" r="56" fill="#ffffff" opacity=".5"/>
+  <circle cx="74" cy="326" r="38" fill="#2f6bff" opacity=".08"/>
+  <ellipse cx="200" cy="322" rx="130" ry="22" fill="#173a8f" opacity=".13" filter="url(#soft)"/>
+  <path d="M176 38h48l18 72h-84z" fill="url(#strap)"/>
+  <path d="M176 38h18l14 72h-14z" fill="#ffffff" opacity=".12"/>
+  <g transform="rotate(-7 200 205)" filter="url(#shadow)">
+    <rect x="64" y="112" width="272" height="170" rx="20" fill="url(#card)"/>
+    <rect x="64" y="112" width="272" height="170" rx="20" fill="url(#shine)"/>
+    <rect x="78" y="126" width="244" height="142" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".28"/>
+    <circle cx="116" cy="166" r="22" fill="#ffffff" opacity=".95"/>
+    <path d="M106 176c0-10 5-16 10-16s10 6 10 16M112 158c0-4 2-7 4-7s4 3 4 7" fill="none" stroke="#2357e6" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="148" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#ffffff" opacity=".9">杭州电子科技大学</text>
+    <text x="148" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="2">校园卡</text>
+    <text x="84" y="222" font-family="DIN Alternate, Arial, sans-serif" font-size="15" fill="#ffffff" opacity=".92" letter-spacing="3">2303 4112</text>
+    <text x="84" y="244" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="8" fill="#ffffff" opacity=".65" letter-spacing="1.2">HANGZHOU DIANZI UNIVERSITY</text>
+    <rect x="258" y="218" width="56" height="36" rx="6" fill="#ffd77a" opacity=".92"/>
+    <path d="M268 228h36M268 236h36M268 244h24" stroke="#b8862f" stroke-width="2" opacity=".65"/>
+    <circle cx="330" cy="142" r="6" fill="#ffffff" opacity=".35"/>
+    <circle cx="330" cy="158" r="4" fill="#ffffff" opacity=".2"/>
+  </g>
+  <g opacity=".8">
+    <circle cx="344" cy="288" r="12" fill="none" stroke="#2f6bff" stroke-width="2"/>
+    <path d="M353 297l14 14" stroke="#2f6bff" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>
+

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="学生证插画">
+  <defs>
+    <radialGradient id="bg" cx="30%" cy="20%" r="95%">
+      <stop offset="0" stop-color="#fff6f3"/>
+      <stop offset="1" stop-color="#ffdcd2"/>
+    </radialGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fff0ec"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d94a3d"/>
+      <stop offset="1" stop-color="#9f241e"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#8f2a20" flood-opacity=".24"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#9f241e" opacity=".1"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <rect width="400" height="400" fill="url(#dots)"/>
+  <circle cx="318" cy="84" r="54" fill="#ffffff" opacity=".5"/>
+  <ellipse cx="200" cy="332" rx="130" ry="20" fill="#8f2a20" opacity=".12" filter="url(#soft)"/>
+  <g transform="rotate(-5 200 205)" filter="url(#shadow)">
+    <rect x="68" y="112" width="264" height="184" rx="18" fill="url(#card)"/>
+    <path d="M68 130c0-10 8-18 18-18h228c10 0 18 8 18 18v32H68z" fill="url(#red)"/>
+    <text x="88" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#ffffff" opacity=".9" letter-spacing="1">杭州电子科技大学</text>
+    <text x="88" y="170" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="3">学生证</text>
+    <text x="262" y="170" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" opacity=".6" letter-spacing="1">STUDENT ID</text>
+    <rect x="86" y="194" width="72" height="80" rx="8" fill="#f4ded8"/>
+    <circle cx="122" cy="218" r="13" fill="#c48a7d"/>
+    <path d="M102 258c4-17 12-25 20-25s16 8 20 25" fill="#c48a7d"/>
+    <text x="176" y="210" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#2c1d1a">陈 默</text>
+    <text x="176" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="10" fill="#8d736c">自动化学院 · 2023 级</text>
+    <text x="176" y="252" font-family="DIN Alternate, Arial, sans-serif" font-size="11" fill="#a68d86" letter-spacing="2">NO. 2303 0927</text>
+    <path d="M176 268h110" stroke="#ead8d3" stroke-width="1"/>
+    <path d="M176 274h72" stroke="#ead8d3" stroke-width="1"/>
+    <g opacity=".7">
+      <rect x="282" y="200" width="30" height="3" rx="1.5" fill="#2c1d1a"/>
+      <rect x="282" y="208" width="26" height="3" rx="1.5" fill="#2c1d1a"/>
+      <rect x="282" y="216" width="34" height="3" rx="1.5" fill="#2c1d1a"/>
+      <rect x="282" y="224" width="20" height="3" rx="1.5" fill="#2c1d1a"/>
+    </g>
+  </g>
+  <g opacity=".6">
+    <path d="M58 320l12 8M70 312l-2 14" stroke="#9f241e" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="342" cy="304" r="4" fill="#9f241e"/>
+  </g>
+</svg>

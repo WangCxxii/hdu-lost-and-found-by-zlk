@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: hdu-lost-found
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: ALLOWED_ORIGINS
+        value: ""
